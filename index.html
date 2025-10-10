@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>ワンオラクル</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <!-- Kaisei Opti を読み込む -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+
+</head>
+
+<body>
+  <!-- ★ 初回だけの可愛いローディング -->
+  <div id="first-visit-loader" hidden>
+    <div class="loader-stage">
+      <div class="blob b1"></div>
+      <div class="blob b2"></div>
+      <div class="blob b3"></div>
+      <div style="display:grid;place-items:center;z-index:1;position:relative;">
+        <div class="loader-bubbles">
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+        </div>
+        <p class="loader-text">はじめまして…読み込み中</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="main-root">
+    <div class="container">
+
+      <!-- ① ここからイントロを追加 -->
+      <section id="intro" class="intro yume-soft-bg">
+        <h1 class="section-title">はじめに</h1>
+        <p class="intro-text">
+          ワンオラクルは、〈あなたの今〉にフォーカスしたシンプルな1枚引きのオラクルカード占いサイトです。
+          毎日のヒントや行動のアドバイスを、カード1枚から受け取ってみましょう。
+        </p>
+        <p class="intro-cta">
+          <a class="btn" href="#hero">まずはカードを引いてみる</a>
+        </p>
+      </section>
+      <!-- ① ここまで -->
+      <!-- ヘッダー -->
+      <header>
+        <nav>
+          <ul>
+            <!-- ① ここを追加 -->
+            <li>
+              <a href="#hero">
+                <img src="icons/00.png" alt="トップアイコン">
+                <span>draw</span>
+              </a>
+            </li>
+            <!-- ───────────────────────── -->
+            <li>
+              <a href="#cards">
+                <img src="icons/01.png" alt="カード一覧">
+                <span>list</span>
+              </a>
+            </li>
+            <li>
+              <a href="#explanation">
+                <img src="icons/02.png" alt="解説">
+                <span>How to</span>
+              </a>
+            </li>
+            <li>
+              <a href="#qa">
+                <img src="icons/03.png" alt="Q&A">
+                <span>Q&A</span>
+              </a>
+            </li>
+            <li>
+              <a href="#about">
+                <img src="icons/04.png" alt="About">
+                <span>About</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <!-- ヒーロー -->
+      <section id="hero" class="yume-hero yume-sparkles" data-sparkles="26">
+        <div class="sparkles" aria-hidden="true"></div>
+        <h1>ワンオラクル</h1>
+
+        <b>聞きたいことを具体的に思い浮かべて</b><br>今日の過ごし方・恋愛・仕事・金運など…<br>今あなたが知りたいことは？<br>下に続く占い方のヒント・やり方も参考にしてね</p>
+        <img src="images/hero.png" alt="タロットイメージ" style="max-width:100%;height:300px;">
+        <p><a class="btn" href="result.html">カードを引く</a></p>
+
+
+
+
+      </section>
+
+      <!-- ヒーローの直後に“波”の仕切り（セクション間のつなぎ） -->
+      <svg class="yume-wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,40 C180,90 360,0 540,20 C720,40 900,110 1080,80 C1260,50 1350,65 1440,50 L1440,120 L0,120 Z" />
+      </svg>
+
+      <!-- ヒント三か条 -->
+      <section id="hints" class="yume-soft-bg">
+        <h2>占うときのヒント</h2>
+        <ul style="list-style:decimal inside; display:inline-block; text-align:left;">
+          <li>同じ質問は繰り返さないで</li>
+          <li>引く前に深呼吸してリラックスして</li>
+          <li>引いたカードの行動をしてみよう</li>
+        </ul>
+        <p><a class="btn" href="#explanation">ワンオラクルのやり方を見る</a></p>
+      </section>
+
+      <!-- カード一覧 -->
+      <section id="cards" class="yume-soft-bg">
+        <h2>カード一覧</h2>
+        <p>カードをタップして詳細を見る</p>
+        <div class="grid">
+          <!-- 0～21まで順番に -->
+          <a href="result.html?index=0"><img src="cards/0.png" alt="カード0：愚者"></a>
+          <a href="result.html?index=1"><img src="cards/1.png" alt="カード1：魔術師"></a>
+          <a href="result.html?index=2"><img src="cards/2.png" alt="カード2：女教皇"></a>
+          <a href="result.html?index=3"><img src="cards/3.png" alt="カード3：女帝"></a>
+          <a href="result.html?index=4"><img src="cards/4.png" alt="カード4：皇帝"></a>
+          <a href="result.html?index=5"><img src="cards/5.png" alt="カード5：法王"></a>
+          <a href="result.html?index=6"><img src="cards/6.png" alt="カード6：恋人"></a>
+          <a href="result.html?index=7"><img src="cards/7.png" alt="カード7：戦車"></a>
+          <a href="result.html?index=8"><img src="cards/8.png" alt="カード8：力"></a>
+          <a href="result.html?index=9"><img src="cards/9.png" alt="カード9：隠者"></a>
+          <a href="result.html?index=10"><img src="cards/10.png" alt="カード10：運命の輪"></a>
+          <a href="result.html?index=11"><img src="cards/11.png" alt="カード11：正義"></a>
+          <a href="result.html?index=12"><img src="cards/12.png" alt="カード12：吊された男"></a>
+          <a href="result.html?index=13"><img src="cards/13.png" alt="カード13：死神"></a>
+          <a href="result.html?index=14"><img src="cards/14.png" alt="カード14：節制"></a>
+          <a href="result.html?index=15"><img src="cards/15.png" alt="カード15：悪魔"></a>
+          <a href="result.html?index=16"><img src="cards/16.png" alt="カード16：塔"></a>
+          <a href="result.html?index=17"><img src="cards/17.png" alt="カード17：星"></a>
+          <a href="result.html?index=18"><img src="cards/18.png" alt="カード18：月"></a>
+          <a href="result.html?index=19"><img src="cards/19.png" alt="カード19：太陽"></a>
+          <a href="result.html?index=20"><img src="cards/20.png" alt="カード20：審判"></a>
+          <a href="result.html?index=21"><img src="cards/21.png" alt="カード21：世界"></a>
+        </div>
+      </section>
+
+      <!-- 解説セクション -->
+      <section id="explanation" class="yume-soft-bg">
+        <div class="divider_block"></div>
+        <div class="for_more_detail tarot">
+          <h2 class="article_ttl_h1"><span>ワンオラクルのやり方</span></h2>
+          <span class="underline_wide_img"></span>
+
+          <!-- ── 目次ブロック ── -->
+          <div class="toc-block">
+            <h3 class="toc-title" data-number="02">目次</h3>
+            <ol class="toc-list">
+              <li>
+                <a href="#h2_1"><span class="toc-num">01</span> ワンオラクルとは？</a>
+              </li>
+              <li>
+                <a href="#h2_2"><span class="toc-num">02</span> ワンオラクルでは具体的に質問しよう</a>
+                <ol class="toc-sublist">
+                  <li><a href="#h3_1">質問のポイント</a></li>
+                  <li><a href="#h3_2">すぐに使える質問例</a></li>
+                </ol>
+              </li>
+            </ol>
+          </div>
+          <div class="articles">
+            <h2 id="h2_1" class="section-title" data-number="01">ワンオラクルとは？</h2>
+            <div class="article">
+              <div class="topic_img"><img src="images/orakuru.png" alt="ワンオラクルのイメージ"></div>
+              <p class="text_main">ワンオラクルは、カードを1枚だけ引いて、そのカードから得られるメッセージやアドバイスを読み解く占術です。シンプルにテーマを絞ることで、的確な示唆を受け取ることができます。
+              </p>
+            </div>
+            <h2 id="h2_2" class="section-title" data-number="02">ワンオラクルでは具体的に質問しよう</h2>
+            <div class="article">
+              <p class="text_main">ワンオラクルは一問一答です。より具体的な質問を頭に浮かべましょう。</p>
+              <h3 id="h3_1" class="article_h3 sub">質問のポイント</h3>
+              <ul class="dot">
+                <li>「誰」を占いたいか—自分・相手</li>
+                <li>「いつのこと」を占いたいか—過去・現在・未来</li>
+                <li>「なに」を占いで得たいかーアドバイス・今の状況・相手や自分の心</li>
+              </ul>
+              <p class="text_main">タロットでは結果の良し悪しではなく、結果からどんなアドバイスを得られるかのほうが重要です。
+                <br></br>
+                もし質問があいまいなままカードをひいてしまうと ・結果の良し悪しに執着してしまい、カードからのアドバイスを行動に移せない ・漠然とした答えしか返ってこず、満足できない ・勝手に都合のいい解釈をしてしまう
+                など、正しく結果と向き合うことができなくなってしまいます。
+                <br></br>質問を用意するときは「自分はどうしたいのか」という意思を明確にし、さらに「それを叶えるのはどうすればいいのか」という具体案をセットにするといい質問に近づきます。
+              </p>
+              <h3 id="h3_2" class="article_h3 sub">すぐに使える質問例</h3>
+              <div class="example-block">
+                <div class="bad_good">
+                  <span class="label bad">Bad</span>
+                  <p><b>彼氏はできる？</b></p>
+                </div>
+                <div class="bad_good">
+                  <span class="label good">Good</span>
+                  <p><b>半年以内に結婚を前提とした相手と付き合うにはどうすればいい？</b></p>
+                </div>
+                <p class="text_sub">
+                  「彼氏はできる？」だと漠然としすぎています。「彼氏が欲しい」という意思を前提に、「いつまでに」「どんな相手と」と「どうすれば」付き合えるのかまで具体化させましょう。
+                </p>
+              </div>
+
+              <div class="example-block">
+                <div class="bad_good">
+                  <span class="label bad">Bad</span>
+                  <p><b>今回のプレゼンはうまくいく？</b></p>
+                </div>
+                <div class="bad_good">
+                  <span class="label good">Good</span>
+                  <p><b>プレゼンを成功させるために必要な準備や心構えは？</b></p>
+                </div>
+                <p class="text_sub">
+                  うまくいくかどうかの結果をタロットに求めると、他力本願になってしまいます。プレゼンを前にできることや考え方について質問することで、イメージトレーニングもしやすくなるはず。｢成功させる｣という意志も自信も強くなるでしょう。
+                </p>
+              </div>
+              <div class="example-block">
+                <div class="bad_good">
+                  <span class="label bad">Bad</span>
+                  <p><b>
+                      ケンカした友達はまだ怒っている？</b></p>
+                </div>
+                <div class="bad_good">
+                  <span class="label good">Good</span>
+                  <p><b>友達と仲直りするにはどんな言葉で謝ればいい？</b></p>
+                </div>
+                <p class="text_sub">
+                  友達の様子も気になりますが、謝ることが先決。感情より行動について質問しましょう。｢仲直りのためにどうすればいい？｣という質問もOKですが、｢言葉｣や｢最初に出す話題｣など、できるだけ細部について質問してみると、カードを読みやすくなります。
+                </p>
+              </div>
+
+              <div class="example-block">
+                <div class="bad_good">
+                  <span class="label bad">Bad</span>
+                  <p><b>今、 大きい買い物をしてもいい？</b></p>
+                </div>
+                <div class="bad_good">
+                  <span class="label good">Good</span>
+                  <p><b>なぜ私は買うかどうかを迷っているの？</b></p>
+                </div>
+                <p class="text_sub">
+                  最終的に購入するかどうかを決めるのは自分しかいません。どうして迷いが生まれているのか、その原因を探る質問をしてみると、自分では意識していなかったことや見落としていたポイント、忘れていた事柄などに気付くきっかけになるでしょう。
+                </p>
+              </div>
+      </section>
+
+      <!-- Q&Aセクション -->
+      <section id="qa" class="yume-soft-bg">
+        <a id="qa_h1"></a>
+        <div class="divider_block"></div>
+        <div class="for_more_detail tarot">
+          <h1 class="article_ttl_h1"><span>ワンオラクルQ&A</span></h1>
+          <span class="underline_wide_img"></span>
+          <div class="toc-block">
+            <h3 class="toc-title" data-number="03">目次</h3>
+            <ol class="toc-list">
+              <li>
+                <a href="#h3_3">
+                  <span class="toc-num">01</span>
+                  Q1. 同じ質問を何度もしてもいいの？
+                </a>
+              </li>
+              <li>
+                <a href="#h3_4">
+                  <span class="toc-num">02</span>
+                  Q2. ピンとこない結果がでたらどうすればいいの？
+                </a>
+              </li>
+            </ol>
+          </div>
+          <div class="articles">
+            <div class="article">
+              <h3 id="h3_3" class="article_h3 sub">Q1. 同じ質問を何度もしてもいいの？</h3>
+              <p class="text_main"><strong>A.</strong> <b>大丈夫です。しかし、時間をおきましょう。</b>
+                <br>
+                一度結果やアドバイスを受けて、行動したり気持ちを入れ替えたりしたあとであればOKです。<br>しかし結果に納得いかないからといって何度も引き直すと自分に都合のいい結果しか受け入れることができなくなります。それでは意味がないので、まずは結果を受け入れて行動してみましょう。
+
+              </p>
+            </div>
+            <div class="article">
+              <h3 id="h3_4" class="article_h3 sub">Q2. ピンとこない結果がでたらどうすればいいの？</h3>
+              <p class="text_main"><strong>A.</strong> <b>行動のヒントにしましょう。占いをさらに掘り下げるのもオススメです。</b>
+                <br>
+                ｢なぜこのカードが出たんだろう？｣と考えれば、何か気付きを得ることができるでしょう。<br>また、なぜこの結果が出たのか、別の方法はないのかをカードに質問してみるのも1つの方法。カードの答えは｢保証付きの予告｣ではないことを忘れないで。現実を作るのはあくまでも自分自身の行動です。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Aboutセクション -->
+      <section id="about" class="yume-soft-bg">
+        <a id="about_h1"></a>
+        <div class="divider_block"></div>
+        <div class="for_more_detail tarot">
+          <h1 class="article_ttl_h1"><span>About</span></h1>
+          <span class="underline_wide_img"></span>
+
+          <!-- 目次 -->
+          <div class="toc-block">
+            <h3 class="toc-title" data-number="04">目次</h3>
+            <ol class="toc-list">
+              <li>
+                <a href="#about_h3_1">
+                  <span class="toc-num">01</span>
+                  カード制作背景
+                </a>
+              </li>
+              <li>
+                <a href="#about_h3_2">
+                  <span class="toc-num">02</span>
+                  カードに込めた思い
+                </a>
+              </li>
+              <li>
+                <a href="#about_h3_3">
+                  <span class="toc-num">03</span>
+                  作者紹介
+                </a>
+              </li>
+            </ol>
+          </div>
+
+          <!-- 各セクション -->
+          <div class="article">
+            <h3 id="about_h3_1">カード制作背景</h3>
+            <p>
+              このオラクルカードは、現在の日常に根ざしたモチーフを下に制作しました。
+              <br>
+              カード一枚一枚に、具体的な行動を描き、わかりやすく日常に取り入れる事ができるようにしています。
+              制作の際にはデジタルを用い、「ポップでゆめかわいい」を心がけました。
+            </p>
+          </div>
+          <div class="article">
+            <h3 id="about_h3_2">カードに込めた思い</h3>
+            <p>
+              私がこのカードに込めたのは「小さな気づきが人生を豊かにする」というメッセージです。
+              <br>
+              日々の中で見過ごしがちなサインや直感を大切にしてほしいという願いを込め、
+              カード一つひとつに具体的なメッセージを添えています。
+            </p>
+          </div>
+          <div class="article">
+            <h3 id="about_h3_3">作者紹介</h3>
+            <p>
+              Miasyです。
+              <br>
+              私もオラクルカードに救われた一人です。皆さんのセルフケアに役に立てば幸いです。
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <footer style="padding:2em 0">
+        <p>&copy; 2025 ワンオラクル</p>
+      </footer>
+
+    </div>
+  </div>
+
+  <!-- Back to top ボタン -->
+  <button id="backToTop" title="トップへ戻る">↑</button>
+
+  <!-- ✨キラキラ（星）をのせる層 -->
+  <div class="sparkle-layer" aria-hidden="true"></div>
+
+  <!-- ☁️雲をのせる層 -->
+  <div class="cloud-layer" aria-hidden="true"></div>
+
+</body>
+</html>
