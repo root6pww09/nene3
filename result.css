@@ -11,8 +11,8 @@
     --nav-gap-desktop: 16px;
     --btn-radius: 12px;
   --yume-white:#fff;
-  --yume-pink:#FFD7F7;
-  --yume-lav:#E8D7FF;
+  --yume-pink:#d7deff;
+  --yume-lav:#d7deff;
   --yume-mint:#D7F7FF;
   --yume-brown:#5C3B34;
 
@@ -166,7 +166,7 @@ header nav ul li a img {
       display: inline-block;
       padding: 10px 20px;
       margin: 0.5em;
-      background: #dbabf0;
+      background: #abc9f0;
       color: #fff;
       border-radius: 4px;
       cursor: pointer;
@@ -287,7 +287,7 @@ section#hints {
 }
 /* ゆめ可愛い雲の塗り＆アウトライン */
 .cloud svg .fill{ fill:#fff7ff; }
-.cloud svg .stroke{ stroke:#caa8ff; stroke-width:2; fill:none; }
+.cloud svg .stroke{ stroke:#a8fffb; stroke-width:2; fill:none; }
 
 /* 覆うとき（index → result 遷移前） */
 @keyframes cloudIn {
@@ -348,7 +348,7 @@ body.show-result .result-root {
 
 /* 詳細カードセクション */
 .detail-section {
-  background: linear-gradient(180deg, #fff, #fef8ff);
+  background: linear-gradient(180deg, #fff, #f8f9ff);
   border-radius: 20px;
   padding: 1.2em;
   box-shadow: 0 3px 10px rgba(200, 150, 255, 0.15);
@@ -363,17 +363,27 @@ footer {
 
 /* 雲の色味もゆめかわ寄りに調整 */
 .cloud svg .fill { fill: #fffaff; }
-.cloud svg .stroke { stroke: #d6b7ff; stroke-width: 2; fill: none; }
+.cloud svg .stroke { stroke: #b7f4ff; stroke-width: 2; fill: none; }
 
 
 /* ==== 最終オーバーライド：タイトルが固定ナビに被らない ==== */
 
 /* 背景（白地）はナビ直下まで伸ばすが、中身はナビ下から開始 */
 .result-root{
-  /* 背景はヘッダーの下までかぶせたい場合は margin-top で上げない */
   margin-top: 0 !important;
-  padding-top: 0 !important; /* まずリセット */
-  background: #fff;
+  padding-top: 0 !important;
+  /* match index background: layered blue gradient + soft radial accents */
+  background:
+    linear-gradient(160deg,
+      color-mix(in oklab, var(--powder-blue) 35%, #fff8ff) 0%,
+      color-mix(in oklab, var(--celestial) 40%, #f7faff) 45%,
+      color-mix(in oklab, var(--light-aqua) 30%, #faffef) 100%),
+    radial-gradient(50rem 35rem at 15% 15%, rgba(225,245,250,.45) 0%, transparent 60%),
+    radial-gradient(60rem 45rem at 80% 80%, rgba(210,240,250,.35) 0%, transparent 65%),
+    var(--yume-white, #fff);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 /* コンテンツは“内側パディング”でナビ高さぶん＋少し下げる */
@@ -424,11 +434,11 @@ header{
 
 /* ② ゆめかわ配色のカスタムプロパティ（既存 :root に追記OK） */
 :root{
-  --yume-pink:#ffd7f7;
-  --yume-lav:#e8d7ff;
+  --yume-pink:#d7f2ff;
+  --yume-lav:#d7e2ff;
   --yume-mint:#d7f7ff;
   --yume-yellow:#fff3c9;
-  --yume-line:#ead3ff;
+  --yume-line:#d3ffed;
   --yume-brown:#4a2f2b;
 }
 
@@ -518,7 +528,7 @@ header{
 
 /* === Header/Nav を index の見た目に統一（上書き用） === */
 :root{
-  --yume-pink:#FFD7F7;
+  --yume-pink:#d7f6ff;
   --yume-brown:#5C3B34;
 }
 
@@ -663,19 +673,161 @@ header nav ul li a:hover svg {
   height: auto;
 }
 
-/* Make result page background match index (uses same vars as style.css) */
+/* Blue palette (ensure same variables) */
+:root{
+  --powder-blue:   #B0E0E6;
+  --sky-mist:      #A9C6CF;
+  --celestial:     #C9DFEC;
+  --pale-blue:     #B0C4DE;
+  --pale-turq:     #AFEEEE;
+  --blue-grey:     #B0C4D6;
+  --light-aqua:    #A6D1E6;
+  --ice-blue:      #AFCBEB;
+  --aqua-haze:     #D9EFF9;
+
+  --r1: var(--aqua-haze);
+  --r2: var(--powder-blue);
+  --r3: var(--celestial);
+  --r4: var(--light-aqua);
+  --r5: var(--ice-blue);
+}
+
+/* Page background — use blue atmosphere */
 body {
   line-height: 1.8;
   letter-spacing: .02em;
   background:
     linear-gradient(160deg,
-      color-mix(in oklab, var(--yume-pink) 35%, #fff8ff) 0%,
-      color-mix(in oklab, var(--yume-lav) 40%, #f7e5ff) 45%,
-      color-mix(in oklab, var(--yume-mint) 30%, #faffef) 100%),
-    radial-gradient(50rem 35rem at 15% 15%, rgba(255,200,255,.4) 0%, transparent 60%),
-    radial-gradient(60rem 45rem at 80% 80%, rgba(200,255,255,.35) 0%, transparent 65%),
-    var(--yume-white);
+      color-mix(in oklab, var(--powder-blue) 35%, #fff8ff) 0%,
+      color-mix(in oklab, var(--celestial) 38%, #f7faff) 45%,
+      color-mix(in oklab, var(--light-aqua) 30%, #faffef) 100%),
+    radial-gradient(50rem 35rem at 15% 15%, rgba(225,245,250,.6) 0%, transparent 60%),
+    radial-gradient(60rem 45rem at 80% 80%, rgba(210,240,250,.45) 0%, transparent 65%),
+    var(--yume-white, #fff);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
 }
+
+/* Loader (result) -> blue variants */
+#first-visit-loader {
+  background:
+    radial-gradient(1200px 900px at 50% 40%, color-mix(in oklab, var(--aqua-haze) 38%, #fff) 0 50%, transparent 70%),
+    linear-gradient(160deg, var(--aqua-haze), var(--celestial) 70%);
+}
+
+/* Cloud fills and strokes -> light blues */
+.cloud svg .fill { fill: color-mix(in oklab, var(--aqua-haze) 60%, #fff); }
+.cloud svg .stroke { stroke: var(--light-aqua); stroke-width: 1.6; }
+
+/* Polka-dot overlay in cards -> blue */
+section#cards::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: .25;
+  pointer-events: none;
+  background-image: radial-gradient(currentColor 1px, transparent 1.5px);
+  color: color-mix(in oklab, var(--celestial) 40%, var(--yume-white));
+  background-size: 14px 14px;
+  mix-blend-mode: multiply;
+}
+
+/* Decorative container backgrounds -> blue */
+.toc-block,
+.example-block,
+.for_more_detail.tarot {
+  background:
+    radial-gradient(28rem 22rem at 8% 10%,  color-mix(in oklab, var(--celestial) 45%, transparent) 0 45%, transparent 60%),
+    radial-gradient(26rem 20rem at 90% 85%, color-mix(in oklab, var(--light-aqua) 40%, transparent) 0 45%, transparent 65%),
+    var(--yume-white);
+  border: 1px solid color-mix(in oklab, var(--celestial) 40%, var(--yume-white));
+}
+
+/* Sparkles and star shadow -> white + blue drop-shadow */
+header nav ul li a svg path { fill: #ffffff !important; }
+header nav ul li a svg { filter: drop-shadow(0 3px 10px rgba(102,153,180,0.32)); }
+
+/* Button style consistent */
+.btn {
+  background: linear-gradient(135deg, var(--celestial), var(--light-aqua), var(--powder-blue));
+  color: #063547;
+  box-shadow: 0 6px 20px rgba(102,153,180,0.10);
+}
+
+/* Ensure header on result page equals index:
+   - use the same blue gradient variables as style.css
+   - reset nav <a> to inline icon+label (no circular white buttons) */
+:root {
+  /* re-declare blue palette (if not already present earlier) */
+  --powder-blue:   #B0E0E6;
+  --sky-mist:      #A9C6CF;
+  --celestial:     #C9DFEC;
+  --pale-blue:     #B0C4DE;
+  --pale-turq:     #AFEEEE;
+  --blue-grey:     #B0C4D6;
+  --light-aqua:    #A6D1E6;
+  --ice-blue:      #AFCBEB;
+  --aqua-haze:     #D9EFF9;
+}
+
+/* make header use same stops as index */
+header {
+  --r1: var(--aqua-haze);
+  --r2: var(--powder-blue);
+  --r3: var(--celestial);
+  --r4: var(--light-aqua);
+  --r5: var(--ice-blue);
+  /* keep existing header background rule from style.css (uses these vars) */
+}
+
+/* Reset nav buttons to match index (inline icon + label, transparent background) */
+header nav {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0;
+}
+header nav ul { display:flex; padding:0; margin:0; list-style:none; }
+header nav ul li { flex:1; display:flex; justify-content:center; }
+
+/* override any earlier "circular button" rules */
+header nav ul li a {
+  width: auto !important;
+  height: auto !important;
+  padding: 4px 6px !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  display: inline-flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  text-decoration: none !important;
+  transition: transform .2s ease !important;
+}
+
+/* keep icon sizing consistent with index */
+header nav ul li a img {
+  width: 40px !important;
+  height: auto !important;
+}
+@media (min-width:768px){
+  header nav ul li a img { width: 54px !important; }
+}
+
+/* ensure span label styling like index */
+header nav ul li a span {
+  white-space: nowrap;
+  font-size: clamp(12px, 1.6vw, 14px);
+  font-weight: 700;
+  color: var(--yume-brown) !important;
+  text-shadow: 0 1px 0 rgba(255,255,255,.85), 0 0 8px rgba(255,255,255,.55);
+}
+
+/* force SVG paths white + blue drop-shadow (index behavior) */
+header nav ul li a svg path { fill: #ffffff !important; }
+header nav ul li a svg { filter: drop-shadow(0 3px 10px rgba(102,153,180,0.32)); }
