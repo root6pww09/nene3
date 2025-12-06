@@ -351,7 +351,7 @@ body.show-result .result-root {
   background: linear-gradient(180deg, #fff, #f8f9ff);
   border-radius: 20px;
   padding: 1.2em;
-  box-shadow: 0 3px 10px rgba(200, 150, 255, 0.15);
+  box-shadow: 0 3px 10px rgba(102,153,180,0.12); /* replaced purple -> blue */
 }
 
 /* フッター */
@@ -485,7 +485,7 @@ header{
   left:0; top:0; translate: var(--x,0) var(--y,0);
   opacity:.9;
   background: radial-gradient(circle, #fff 0 45%, rgba(255,255,255,0) 70%);
-  filter: drop-shadow(0 2px 4px rgba(180,130,255,.25));
+  filter: drop-shadow(0 2px 4px rgba(102,153,180,0.20)); /* replaced purple -> blue */
   border-radius:50%;
   animation: floatY var(--d,8s) linear infinite,
              driftX calc(var(--d,8s) * 1.2) ease-in-out infinite;
@@ -520,7 +520,7 @@ header{
 /* ============ セクション間のウェーブ ============ */
 .yume-wave{
   display:block; width:100%; height:64px; margin:-10px 0 0 0;
-  filter: drop-shadow(0 -2px 6px rgba(200,150,255,.18));
+  filter: drop-shadow(0 -2px 6px rgba(102,153,180,0.18)); /* replaced purple -> blue */
 }
 .yume-wave path{ fill:#fff; } /* 下のセクションと自然につなぐ */
 
