@@ -164,13 +164,17 @@ header nav ul li a img {
     /* ボタン共通 */
     .btn {
       display: inline-block;
-      padding: 10px 20px;
-      margin: 0.5em;
-      background: #abc9f0;
-      color: #fff;
-      border-radius: 4px;
+      background: linear-gradient(135deg, var(--celestial), var(--light-aqua), var(--powder-blue));
+      color: #063547;
+      border: none;
+      border-radius: 50px;
+      padding: 12px 28px;
+      font-weight: bold;
       cursor: pointer;
-      white-space: nowrap;
+      text-decoration: none;
+      margin: 0.5em;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(102,153,180,0.10);
     }
 
     /* カード表示 */
@@ -751,8 +755,17 @@ header nav ul li a svg { filter: drop-shadow(0 3px 10px rgba(102,153,180,0.32));
 
 /* Button style consistent */
 .btn {
+  display: inline-block;
   background: linear-gradient(135deg, var(--celestial), var(--light-aqua), var(--powder-blue));
   color: #063547;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 28px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 0.5em;
+  transition: all 0.3s ease;
   box-shadow: 0 6px 20px rgba(102,153,180,0.10);
 }
 
@@ -831,3 +844,12 @@ header nav ul li a span {
 /* force SVG paths white + blue drop-shadow (index behavior) */
 header nav ul li a svg path { fill: #ffffff !important; }
 header nav ul li a svg { filter: drop-shadow(0 3px 10px rgba(102,153,180,0.32)); }
+
+/* 詳細セクション：常に1列、中央揃え */
+.details { display: flex; flex-direction: column; gap: 1.5em; align-items: center; }
+.detail-section {
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+}
+.detail-section p { line-height: 1.6; }

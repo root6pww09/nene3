@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 /* ===== 1. カスタムプロパティ（統合版） ===== */
+
 :root {
   /* レイアウト */
   --header-height-mobile: 70px;
@@ -273,7 +274,7 @@ section#hero {
   text-align: center;
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(102,153,180,0.08); /* replaced purple -> blue */
+
 }
 
 section#hero h1 {
@@ -311,6 +312,8 @@ section#cards {
   overflow: hidden;
 }
 
+
+
 /* ===== 8. セクション背景効果 ===== */
 /* ヒント：ポップな丸 */
 section#hints::before,
@@ -320,11 +323,7 @@ section#hints::after {
   inset: -12% -8% -8% -8%;
   z-index: 0;
   pointer-events: none;
-  background:
-    radial-gradient(180px 140px at 18% 26%, color-mix(in oklab, var(--aqua-haze) 55%, transparent) 0 60%, transparent 61%),
-    radial-gradient(220px 160px at 88% 30%, color-mix(in oklab, var(--celestial) 55%, transparent) 0 60%, transparent 61%),
-    radial-gradient(160px 120px at 62% 78%, color-mix(in oklab, var(--light-aqua) 55%, transparent) 0 60%, transparent 61%),
-    radial-gradient(120px 90px  at 10% 88%, color-mix(in oklab, var(--powder-blue) 40%, transparent) 0 60%, transparent 61%);
+  opacity: 0.3;
 }
 
 section#hints::after {
@@ -1001,3 +1000,4 @@ body.fade-out .main-root {
   z-index: 1; /* < container の z-index */
   overflow: visible;
 }
+
