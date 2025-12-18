@@ -243,8 +243,8 @@ section#hints h2 {
 }
 /* ヒントと「やり方を見る」ボタンの間の余白 */
 section#hints {
-  margin-top: 2em;     /* details との隙間 */
-  margin-bottom: 3em;  /* ボタン群との隙間を広めに */
+  margin-top: 13em;     /* details との隙間 */
+  margin-bottom: 8em;  /* ボタン群との隙間を広めに */
 }
 
 /* ヒントリスト自体の下余白 */
@@ -853,3 +853,200 @@ header nav ul li a svg { filter: drop-shadow(0 3px 10px rgba(102,153,180,0.32));
   max-width: 600px;
 }
 .detail-section p { line-height: 1.6; }
+
+/* ===== ゆめかわ ふわふわ楕円 ===== */
+
+#hints {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 楕円たちをまとめる箱 */
+.yume-blobs {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* 楕円1つ1つ */
+.yume-blobs .blob {
+  position: absolute;
+  width: 300px;
+  height: 400px;
+  background: linear-gradient(
+    135deg,
+    rgba(180, 240, 255, 0.7),
+    rgba(190, 255, 230, 0.7)
+  );
+  border-radius: 60% 40% 55% 45%;
+  filter: blur(2px);
+  animation:
+    float 12s ease-in-out infinite,
+    morph 8s ease-in-out infinite;
+}
+
+/* それぞれ少しずつ位置と動きを変える */
+/* それぞれ少しずつ位置と動きを変える（ランダム風） */
+.yume-blobs .blob:nth-child(1) {
+  top: 12%;
+  left: 8%;
+  animation-delay: -1.5s;
+}
+
+.yume-blobs .blob:nth-child(2) {
+  top: 38%;
+  left: 57%;
+  animation-delay: -4.2s;
+}
+
+.yume-blobs .blob:nth-child(3) {
+  top: 66%;
+  left: 21%;
+  animation-delay: -6.8s;
+}
+
+.yume-blobs .blob:nth-child(4) {
+  top: 22%;
+  left: 74%;
+  animation-delay: -3.3s;
+}
+
+.yume-blobs .blob:nth-child(5) {
+  top: 58%;
+  left: 42%;
+  animation-delay: -5.6s;
+}
+
+
+/* ふわふわ移動 */
+@keyframes float {
+  0%   { transform: translate(0, 0); }
+  50%  { transform: translate(30px, -20px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* 形がくっついたり離れたりする感じ */
+@keyframes morph {
+  0% {
+    border-radius: 60% 40% 55% 45%;
+  }
+  50% {
+    border-radius: 40% 60% 35% 65%;
+  }
+  100% {
+    border-radius: 60% 40% 55% 45%;
+  }
+}
+
+/* 中の文字を前に出す */
+#hints > * {
+  position: relative;
+  z-index: 1;
+}
+/* ヒント背景を少し透かして楕円を見せる */
+#hints.yume-soft-bg {
+  background-color: rgba(255, 255, 255, 0.85);
+}
+/* ヒントセクションだけ背景グラデーションを消す */
+#hints.yume-soft-bg::before {
+  content: none;
+}
+/* ヒントと次のセクションの間を広げる */
+#hints {
+  margin-bottom: 200em;
+  margin-top: 200em;
+}
+#hints {
+  padding-top: 200em;
+  padding-bottom: 200em;
+}
+/* ===== hints の楕円：PC=5個 / スマホ=3個 ===== */
+
+/* まず全体の基本サイズ（PC想定） */
+#hints .yume-blobs .blob{
+  width: 90px;
+  height: 90px;
+}
+
+/* スマホ：4個目以降を消して、サイズも小さく */
+@media (max-width: 767px){
+  #hints .yume-blobs .blob{
+    width: 64px;
+    height: 64px;
+  }
+
+  /* 4個目以降を非表示 → 3個だけ残る */
+  #hints .yume-blobs .blob:nth-child(n+4){
+    display: none;
+  }
+}
+
+/* ===== ヒント背景：バブル風（サイズ・位置・動きに個体差） ===== */
+
+/* 共通：サイズは変数で決める */
+#hints .yume-blobs .blob{
+  width: var(--w, 90px);
+  height: var(--h, 90px);
+  opacity: var(--op, 0.55);
+  filter: blur(2px);
+  animation-duration: var(--floatD, 12s), var(--morphD, 8s);
+}
+
+/* 1〜5：PCで見える分（ランダム風の値） */
+#hints .yume-blobs .blob:nth-child(1){
+  --w: 120px; --h: 88px; --op: 0.55;
+  top: 14%; left: 6%;
+  animation-delay: -1.7s, -3.2s;
+  --floatD: 13.4s; --morphD: 8.6s;
+}
+#hints .yume-blobs .blob:nth-child(2){
+  --w: 74px; --h: 96px; --op: 0.48;
+  top: 36%; left: 58%;
+  animation-delay: -4.1s, -1.9s;
+  --floatD: 11.2s; --morphD: 9.4s;
+}
+#hints .yume-blobs .blob:nth-child(3){
+  --w: 98px; --h: 70px; --op: 0.52;
+  top: 64%; left: 22%;
+  animation-delay: -6.6s, -4.8s;
+  --floatD: 14.6s; --morphD: 7.7s;
+}
+#hints .yume-blobs .blob:nth-child(4){
+  --w: 62px; --h: 62px; --op: 0.44;
+  top: 20%; left: 76%;
+  animation-delay: -3.5s, -6.1s;
+  --floatD: 10.8s; --morphD: 8.9s;
+}
+#hints .yume-blobs .blob:nth-child(5){
+  --w: 132px; --h: 104px; --op: 0.50;
+  top: 58%; left: 44%;
+  animation-delay: -5.9s, -2.7s;
+  --floatD: 15.1s; --morphD: 10.2s;
+}
+
+/* スマホ：3個だけ表示（既存ルールを維持）＋サイズもスマホ用に再ランダム */
+@media (max-width: 767px){
+  #hints .yume-blobs .blob:nth-child(n+4){
+    display: none;
+  }
+
+  #hints .yume-blobs .blob:nth-child(1){
+    --w: 86px; --h: 64px; --op: 0.55;
+    top: 18%; left: 8%;
+  }
+  #hints .yume-blobs .blob:nth-child(2){
+    --w: 58px; --h: 76px; --op: 0.48;
+    top: 44%; left: 62%;
+  }
+  #hints .yume-blobs .blob:nth-child(3){
+    --w: 92px; --h: 66px; --op: 0.52;
+    top: 70%; left: 18%;
+  }
+}
+/* ===== ヒント背景バブル：サイズを全体的に大きくする ===== */
+
+#hints .yume-blobs .blob{
+  width: calc(var(--w, 90px) * 2);
+  height: calc(var(--h, 90px) * 2);
+}
