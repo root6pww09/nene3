@@ -72,7 +72,7 @@ document.getElementById("otherDetail").textContent = details[idx].other;
 
 // シェアボタンの設定
 const shareX = document.getElementById('shareX');
-const topPageUrl = 'https://nekutarin31.github.io/nene3/';
+const topPageUrl = 'https://root6pww09.github.io/nene3/';
 const tweetText = 'ワンオラクル タロットで１枚引いてみよう！';
 shareX.href = 
   'https://twitter.com/intent/tweet?' +
